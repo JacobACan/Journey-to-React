@@ -1,12 +1,2 @@
-console.log(
-    
-    
-    
-    
-    'Hello World!'
-    
-    
-    
-    
-    
-    )
+let a = undefined
+let b = null
