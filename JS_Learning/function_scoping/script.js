@@ -31,3 +31,22 @@ function func(x, func) {
 func(10, (x) => {
   console.log(x)
 })
+
+// Hoisting
+/* Takes all functions in a .js file and moves them as 
+if they were at the top of the file */
+/* Does not work with arrow functions because they are assigned as a variable*/
+
+// Scoping
+// Closures
+/* functions within other functions */
+/* js has access to variables outside of its scope but not within*/
+function print(x) {
+  return function func(x2) {
+    console.log(x)
+    console.log(x2)
+  }
+}
+
+let a = print(1)
+a(2)
