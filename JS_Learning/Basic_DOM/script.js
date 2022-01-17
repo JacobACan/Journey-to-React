@@ -60,13 +60,60 @@
 //blur (opposite of focus)
 //resize
 
-// Scoping between normal and arrow functions.
-const btn = document.querySelector("[data-btn]")
-btn.addEventListener("click", (e) => {
-  console.log(`This in arrow:`)
-  console.log(this)
-})
-btn.addEventListener("click", function (e) {
-  console.log(`This in normal:`)
-  console.log(this)
+// // Scoping between normal and arrow functions.
+// const btn = document.querySelector("[data-btn]")
+// btn.addEventListener("click", (e) => {
+//   console.log(`This in arrow:`)
+//   console.log(this)
+// })
+// btn.addEventListener("click", function (e) {
+//   console.log(`This in normal:`)
+//   console.log(this)
+// })
+
+//Data Attributes
+class Colors {
+  constructor(colors) {
+    this.colors = colors
+    this.index = -1
+  }
+  randomColor() {
+    return this.colors[Math.floor(Math.random() * this.colors.length)]
+  }
+  nextColor(buttonData) {
+    let clicks = parseInt(buttonData)
+    while (clicks - this.colors.length > 0) {
+      clicks -= this.colors.length
+    }
+    return this.colors[clicks - 1]
+  }
+}
+let rainbowColors = new Colors([
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "blue",
+  "purple",
+])
+let redOrangeColors = new Colors(["red", "orange"])
+
+const btn = document.querySelectorAll("[data-btn]")
+console.log(btn.dataset)
+btn.forEach((button) => {
+  button.addEventListener("click", (e) => {
+    let width = button.clientWidth
+    let height = button.clientHeight
+    if (e.ctrlKey) {
+      button.dataset.btn = parseInt(button.dataset.btn) - 1
+      button.style.width = `${width - 10}px`
+      button.style.height = `${height - 10}px`
+    } else {
+      button.dataset.btn = parseInt(button.dataset.btn) + 1
+      button.style.width = `${width + 10}px`
+      button.style.height = `${height + 10}px`
+    }
+    button.innerHTML = button.dataset.btn
+    button.style.backgroundColor = rainbowColors.nextColor(button.dataset.btn)
+  })
 })
