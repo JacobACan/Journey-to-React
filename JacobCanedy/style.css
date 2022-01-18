@@ -4,8 +4,8 @@ html::-webkit-scrollbar {
   width: 1vh;
   transition: all ease 1s;
 }
-/* html::-webkit-scrollbar {
-} */
+
+
 html::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.481);
   border-radius: 5px;
@@ -15,28 +15,49 @@ html::-webkit-scrollbar-track {
 }
 
 body {
-
-  background-image: url(https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWMlMjBzdHVkaW98ZW58MHx8MHx8&w=1000&q=80),linear-gradient(
+  margin: 0px;
+  background-image: linear-gradient(
     to bottom right,
-    rgb(200, 208, 131),
-    rgb(26, 25, 25));
-  background-repeat: no-repeat, repeat;
-  background-size: 100% 70vh;
-  background-position: 0px -10vh, 100% 100%;
+    rgb(247, 247, 247),
+    rgb(35, 35, 35));
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
   background-blend-mode:darken;
-  height: 100%;
 }
 
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  background-image: url(https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWMlMjBzdHVkaW98ZW58MHx8MHx8&w=1000&q=80);
+  
+  background-position: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  background-attachment: fixed;
+  background-color: rgba(98, 98, 98, 0.306);
+  background-blend-mode:color-burn;
+}
+
+
 h1 {
-  margin-top: 50px;
-  padding-top: 100px;
+  width: 100%;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
   font-family: "Bebas Neue", cursive;
-  font-size: 4cm;
+  font-size: 12vw;
   text-align: center;
   color: white;
   letter-spacing: 0.5cm;
   -webkit-text-stroke-color: white;
-  text-shadow: 2px 2px 1px  rgb(125, 125, 125);
+  text-shadow: .2vw .2vw 1px  rgb(0, 0, 0);
+  align-items: center;
+  
+}
+.title {
+  padding-top: 36vh;
 }
 .description {
   font-size: 20%;
@@ -46,28 +67,65 @@ h1 {
 }
 
 
+.Page {
+  /* margin-top: 2vw; */
+  box-shadow: 0 -10px 5 solid black;
+  padding: 0px;
+  border-top: 5px solid black;
 
+}
 .Latest {
+  /* margin-top: 4vh;
+  margin-bottom: 4vh; */
+  padding: 3vh;
   font-family: "Bebas Neue", cursive;
-  width: 100%;
-  font-size: 2cm;
-  background-color: rgba(204, 204, 204, 0.381);
-  border-radius: 10px;
+  width: 20vw;
+  font-size: 3.5vw;
+  background-color: rgba(185, 186, 133, 0.279);
+  border-top-right-radius: 10vh;
+  border-bottom-right-radius: 10vh;
+  border-top: 4px solid black;
+  border-right: 4px solid black;
+  border-bottom: 4px solid black;
+  transition: all ease 1s;
+}
+.Latest.scrollin.active {
+  width: 96.5%;
+  border-radius: 0px;
+}
+
+.Latest.Music {
+  background-image: url(https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+  background-blend-mode: color-burn;
+  background-size: static;
+  background-color: rgba(0, 0, 0, 0.571);
+  color: white;
+  
+}
+
+.Latest.Products {
+  background-image: url(https://cdn.mos.cms.futurecdn.net/9j85uq3vRbBfVdHrYg5zF4-1200-80.jpg);
+  background-blend-mode: color-burn;
+  background-size: static;
+  background-color: rgba(0, 0, 0, 0.571);
+  color: white;
 }
 .songs {
   display: flex;
-  font-size: 30%;
+  font-size: 50%;
   height: 50vh;
 }
 .songs > * {
   flex-basis: 100%;
+  text-align: center;
 }
 
 .products {
   display: flex;
-  font-size: 30%;
+  font-size: 50%;
   height: 50vh;
 }
 .products > * {
   flex-basis: 100%;
+  text-align: center;
 }
