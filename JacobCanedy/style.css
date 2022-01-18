@@ -15,33 +15,44 @@ html::-webkit-scrollbar-track {
 }
 
 body {
-  background-image: linear-gradient(
+
+  background-image: url(https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8bXVzaWMlMjBzdHVkaW98ZW58MHx8MHx8&w=1000&q=80),linear-gradient(
     to bottom right,
     rgb(200, 208, 131),
-    rgb(26, 25, 25)
-  );
-  height: 93vh;
+    rgb(26, 25, 25));
+  background-repeat: no-repeat, repeat;
+  background-size: 100% 70vh;
+  background-position: 0px -10vh, 100% 100%;
+  background-blend-mode:darken;
+  height: 100%;
 }
+
 h1 {
+  margin-top: 50px;
   padding-top: 100px;
   font-family: "Bebas Neue", cursive;
   font-size: 4cm;
   text-align: center;
   color: white;
   letter-spacing: 0.5cm;
-  /* -webkit-text-stroke: 0.2px rgb(0, 0, 0);
-  -webkit-text-fill-color: white; */
+  -webkit-text-stroke-color: white;
+  text-shadow: 2px 2px 1px  rgb(125, 125, 125);
 }
 .description {
   font-size: 20%;
   letter-spacing: 0.5cm;
+  -webkit-text-stroke: 0px;
+  -webkit-text-fill-color: white;
 }
+
+
 
 .Latest {
   font-family: "Bebas Neue", cursive;
   width: 100%;
   font-size: 2cm;
-  background-color: rgba(204, 204, 204, 0.165);
+  background-color: rgba(204, 204, 204, 0.381);
+  border-radius: 10px;
 }
 .songs {
   display: flex;
@@ -57,6 +68,6 @@ h1 {
   font-size: 30%;
   height: 50vh;
 }
-.product > * {
+.products > * {
   flex-basis: 100%;
 }
