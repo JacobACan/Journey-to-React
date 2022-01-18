@@ -58,6 +58,10 @@ h1 {
 }
 .title {
   padding-top: 36vh;
+  transition: all ease 1.5s;
+}
+.title.slideAway {
+  padding-top: 0;
 }
 .description {
   font-size: 20%;
@@ -75,15 +79,15 @@ h1 {
 
 }
 .Latest {
-  /* margin-top: 4vh;
-  margin-bottom: 4vh; */
+  margin-top: .5vw;
+  /* margin-bottom: 1vh; */
   padding: 3vh;
   font-family: "Bebas Neue", cursive;
   width: 20vw;
   font-size: 3.5vw;
   background-color: rgba(185, 186, 133, 0.279);
-  border-top-right-radius: 10vh;
-  border-bottom-right-radius: 10vh;
+  border-top-right-radius: 3vh;
+  border-bottom-right-radius: 3vh;
   border-top: 4px solid black;
   border-right: 4px solid black;
   border-bottom: 4px solid black;
@@ -111,21 +115,51 @@ h1 {
   color: white;
 }
 .songs {
-  display: flex;
+  display: table-row;
   font-size: 50%;
   height: 50vh;
 }
+.Latest.scrollin.active .songs {
+  display: flex;
+}
+.video {
+  display: none;
+}
+
+
 .songs > * {
+  display: grid;
   flex-basis: 100%;
   text-align: center;
+  align-self: flex-start;
+}
+.song {
+  justify-content: center;
+
 }
 
 .products {
-  display: flex;
+  display:table-row;
   font-size: 50%;
   height: 50vh;
+  transition: all ease 1s
+}
+.Latest.scrollin.active .products {
+  display:flex;
 }
 .products > * {
   flex-basis: 100%;
   text-align: center;
+}
+
+.video {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 135px;
+  width: 240px;
+}
+.Latest.scrollin.active .video {
+  display: flex;
+  opacity: 1;
 }
