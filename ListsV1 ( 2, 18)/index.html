@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <title>Listz</title>
+    <script defer src="app.js"></script>
+  </head>
+
+  <body>
+    <div class="topofpage">
+      <h1 class="header">
+        LIST-Z
+        <div class="description">the last list you'll ever need.</div>
+      </h1>
+
+      <nav class="nav">
+        <ul>
+          <li id="navigationlist">Account</li>
+          <li id="navigationlist">Settings</li>
+          <li id="navigationlist">Calendar</li>
+          <!-- <li id="navigationlist"></li> -->
+        </ul>
+      </nav>
+    </div>
+    <div class="Page">
+      <div id="Overview Container" class="Overview Container">
+        <div>
+          <h3 class="addcustomtime">+</h3>
+        </div>
+        <section id="column" class="Overview">
+          <h3>Every Day</h3>
+          <label class="custom-field">
+            <input class="Input" id="input" />
+            <span class="placeholder"> New Item </span>
+            <div id="dropdownmenu" class="dropdownmenu">
+              <ul>
+                <li>Color</li>
+              </ul>
+            </div>
+          </label>
+          <br />
+          <button class="Item blue" onclick="ShowSelectedOverview()">
+            Workout
+          </button>
+
+          <button class="Item green" onclick="RunSelectedOverview()">
+            Study
+          </button>
+
+          <button class="Item purple" onclick="RunSelectedOverview()">
+            Diet
+          </button>
+        </section>
+        <section id="column" class="Overview">
+          <h3>Tommorow</h3>
+          <label class="custom-field">
+            <input class="Input" id="input" />
+            <span class="placeholder"> New Item </span>
+          </label>
+          <br />
+          <button class="Item blue" onclick="RunFullOverview()">Lift</button>
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+        </section>
+        <section id="column" class="Overview">
+          <h3>Week</h3>
+          <label class="custom-field">
+            <input class="Input" id="input" />
+            <span class="placeholder"> New Item </span>
+          </label>
+          <br />
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+        </section>
+        <section id="column" class="Overview">
+          <h3>Month</h3>
+          <label class="custom-field">
+            <input class="Input" id="input" />
+            <span class="placeholder"> New Item </span>
+          </label>
+          <br />
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+        </section>
+        <section id="column" class="Overview">
+          <h3>Year</h3>
+          <label class="custom-field">
+            <input class="Input" id="input" />
+            <span class="placeholder"> New Item </span>
+          </label>
+          <br />
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+        </section>
+        <section id="column" class="Overview">
+          <h3>Years</h3>
+          <label class="custom-field">
+            <input class="Input" id="input" />
+            <span class="placeholder"> New Item </span>
+          </label>
+          <br />
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+
+          <button class="Item" onclick="RunSelectedOverview()"></button>
+        </section>
+      </div>
+      <div id="Overview Container" class="Overview Container"></div>
+    </div>
+  </body>
+</html>
