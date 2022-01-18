@@ -1,0 +1,62 @@
+html::-webkit-scrollbar {
+  scrollbar-color: gray;
+
+  width: 1vh;
+  transition: all ease 1s;
+}
+/* html::-webkit-scrollbar {
+} */
+html::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.481);
+  border-radius: 5px;
+}
+html::-webkit-scrollbar-track {
+  background-color: gray;
+}
+
+body {
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(200, 208, 131),
+    rgb(26, 25, 25)
+  );
+  height: 93vh;
+}
+h1 {
+  padding-top: 100px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 4cm;
+  text-align: center;
+  color: white;
+  letter-spacing: 0.5cm;
+  /* -webkit-text-stroke: 0.2px rgb(0, 0, 0);
+  -webkit-text-fill-color: white; */
+}
+.description {
+  font-size: 20%;
+  letter-spacing: 0.5cm;
+}
+
+.Latest {
+  font-family: "Bebas Neue", cursive;
+  width: 100%;
+  font-size: 2cm;
+  background-color: rgba(204, 204, 204, 0.165);
+}
+.songs {
+  display: flex;
+  font-size: 30%;
+  height: 50vh;
+}
+.songs > * {
+  flex-basis: 100%;
+}
+
+.products {
+  display: flex;
+  font-size: 30%;
+  height: 50vh;
+}
+.product > * {
+  flex-basis: 100%;
+}
