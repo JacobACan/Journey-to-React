@@ -52,10 +52,10 @@ function addClickOverviewEventListeners() {
     if (e.ctrlKey) {
       if (e.target.classList[0] == "Item") {
         console.log("Selected")
-        e.target.parentNode.removeChild(e.target)
+        e.target.remove()
       }
       if (e.target.id == "column") {
-        e.target.parentNode.removeChild(e.target)
+        e.target.remove()
       }
     }
     if (e.target.className == "addcustomtime") {
