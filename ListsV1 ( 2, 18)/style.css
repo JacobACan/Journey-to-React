@@ -4,8 +4,8 @@ html::-webkit-scrollbar {
   width: 1vh;
   transition: all ease 1s;
 }
-html::-webkit-scrollbar {
-}
+/* html::-webkit-scrollbar {
+} */
 html::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.481);
   border-radius: 5px;
@@ -81,14 +81,18 @@ ul {
   width: 100%;
 }
 ul > * {
+  padding-left: 27vh;
   flex-basis: 100%;
   color: white;
   cursor: pointer;
   letter-spacing: 0.2vh;
+  list-style-type: none;
   /* font-size: 10px; */
 }
 li:hover {
-  transform: scale3d(1.1, 1.1, 1.1);
+  /* transform: scale3d(1.05, 1.05, 1.05); */
+  font-size: 2vh;
+  color: darkgray;
 }
 .Page {
   display: flex;
