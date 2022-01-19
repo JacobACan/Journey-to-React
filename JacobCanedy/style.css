@@ -50,14 +50,14 @@ h1 {
   font-size: 12vw;
   text-align: center;
   color: white;
-  letter-spacing: 0.5cm;
+  letter-spacing: 1vw;
   -webkit-text-stroke-color: white;
   text-shadow: .2vw .2vw 1px  rgb(0, 0, 0);
   align-items: center;
   
 }
 .title {
-  padding-top: 36vh;
+  padding-top: 34vh;
   transition: all ease 1.5s;
 }
 .title.slideAway {
@@ -65,7 +65,7 @@ h1 {
 }
 .description {
   font-size: 20%;
-  letter-spacing: 0.5cm;
+  letter-spacing: 1vw;
   -webkit-text-stroke: 0px;
   -webkit-text-fill-color: white;
 }
@@ -79,12 +79,12 @@ h1 {
 
 }
 .Latest {
-  margin-top: .5vw;
+  margin-top: 0vw;
   /* margin-bottom: 1vh; */
   padding: 3vh;
   font-family: "Bebas Neue", cursive;
-  width: 20vw;
-  font-size: 3.5vw;
+  width: 0vw;
+  font-size: 5vw;
   background-color: rgba(185, 186, 133, 0.279);
   border-top-right-radius: 3vh;
   border-bottom-right-radius: 3vh;
@@ -97,8 +97,13 @@ h1 {
   width: 96.5%;
   border-radius: 0px;
 }
+.Latest.scrollin.activePhone {
+  width: 96.5%;
+  border-radius: 0px;
+}
 
 .Latest.Music {
+  width: 22vw;
   background-image: url(https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
   background-blend-mode: color-burn;
   background-size: static;
@@ -108,6 +113,7 @@ h1 {
 }
 
 .Latest.Products {
+  width: 28vw;
   background-image: url(https://cdn.mos.cms.futurecdn.net/9j85uq3vRbBfVdHrYg5zF4-1200-80.jpg);
   background-blend-mode: color-burn;
   background-size: static;
@@ -122,6 +128,10 @@ h1 {
 .Latest.scrollin.active .songs {
   display: flex;
 }
+.Latest.scrollin.activePhone .songs {
+  display: table-row;
+}
+
 .video {
   display: none;
 }
@@ -147,6 +157,10 @@ h1 {
 .Latest.scrollin.active .products {
   display:flex;
 }
+.Latest.scrollin.activePhone .products {
+  display:table-row;
+}
+
 .products > * {
   flex-basis: 100%;
   text-align: center;
@@ -160,6 +174,10 @@ h1 {
   width: 240px;
 }
 .Latest.scrollin.active .video {
+  display: flex;
+  opacity: 1;
+}
+.Latest.scrollin.activePhone .video {
   display: flex;
   opacity: 1;
 }

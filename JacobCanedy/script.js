@@ -1,6 +1,8 @@
 const PageItems = document.querySelectorAll(".Latest")
 const title = document.querySelector(".title")
 const faders = document.querySelectorAll(".scrollin")
+let windowWidth = window.innerWidth
+
 const appearOptions = {
   threshold: 0.9,
 }
@@ -23,8 +25,17 @@ const appearOnScroll = new IntersectionObserver(function (
     if (!entry.isIntersecting) {
       return
     } else {
-      entry.target.classList.add("active")
-      appearOnScroll.unobserve(entry.target)
+      let windowWidth = window.innerWidth
+
+      entry.target.classList.add(
+        "active",
+        windowWidth > 762 && entry.isIntersecting
+      )
+
+      entry.target.classList.add(
+        "activePhone",
+        windowWidth < 762 && entry.isIntersecting
+      )
     }
   })
 },
@@ -36,10 +47,16 @@ faders.forEach((fader) => {
 PageItems.forEach((Item) => {
   Item.addEventListener("click", () => {
     ItemClassList = Item.classList
-    if (ItemClassList.length < 4) {
-      Item.classList.add("active")
-    } else {
-      Item.classList.remove("active")
-    }
+    let windowWidth = window.innerWidth
+    Item.classList.toggle(
+      "active",
+      !Item.classList.contains("active") && windowWidth > 762
+    )
+    Item.classList.toggle(
+      "activePhone",
+      !Item.classList.contains("activePhone") && windowWidth < 762
+    )
+    // Item.classList.remove("active", Item.classList.contains("active"))
+    // Item.classList.remove("activePhone", Item.classList.contains("activePhone"))
   })
 })
