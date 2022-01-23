@@ -12,3 +12,25 @@ const NOTE_DETAILS = [
   { note: "Bb", key: "J", frequency: 466.164 },
   { note: "B", key: "M", frequency: 493.883 },
 ]
+const KEYS = document.querySelectorAll(".key")
+function toggleKey(key) {
+  key.classList.toggle("active")
+  playNote(key)
+}
+function playNote(key) {
+  NOTE_DETAILS.forEach((note) => {
+    if (note.note == key.dataset.note) {
+      console.log(note.frequency)
+    }
+  })
+}
+
+KEYS.forEach((key) => {
+  key.addEventListener("click", (e) => {
+    console.log(e)
+    toggleKey(key)
+  })
+})
+document.addEventListener("keypress", (e) => {
+  console.log(e)
+})
