@@ -47,3 +47,9 @@ switch (number) {
     console.log("try again!")
     break
 }
+// Short Circuit Evaluation
+function printName(name) {
+  console.log(name || "default")
+}
+
+printName()
