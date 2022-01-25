@@ -67,3 +67,9 @@ const Person = {
   },
 }
 main()
+// Short Circuit Evaluation
+function printName(name) {
+  console.log(name || "default")
+}
+
+printName()
