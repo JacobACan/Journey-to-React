@@ -14,24 +14,23 @@ const NOTE_DETAILS = [
 ]
 const KEYS = document.querySelectorAll(".key")
 var audioCtx = new (window.AudioContext || window.webkitAudioContext)()
-var oscillator = audioCtx.createOscillator()
 
 function pressKey(key) {
-  if (!key.classList.contains("active")) {
-    key.classList.add("active")
-    playNote(key)
-  }
+  playNote(key)
+  key.classList.add("active")
 }
+function unpressKey(key) {
+  stopNote(key)
+  key.classList.remove("active")
+}
+
 function playNote(key) {
   NOTE_DETAILS.forEach((note) => {
     if (note.note == key.dataset.note) {
+      oscillator = audioCtx.createOscillator()
       createNote(note.frequency, oscillator)
     }
   })
-}
-function unpressKey(key) {
-  key.classList.remove("active")
-  stopNote(key)
 }
 function stopNote(key) {
   NOTE_DETAILS.forEach((note) => {
@@ -73,6 +72,7 @@ document.addEventListener("keyup", (e) => {
   })
 })
 document.addEventListener("keydown", (e) => {
+  if (e.repeat) return
   NOTE_DETAILS.forEach((key) => {
     if (key.key.toLowerCase() == e.key) {
       KEYS.forEach((htmlKey) => {
