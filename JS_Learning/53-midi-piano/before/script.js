@@ -13,24 +13,73 @@ const NOTE_DETAILS = [
   { note: "B", key: "M", frequency: 493.883 },
 ]
 const KEYS = document.querySelectorAll(".key")
-function toggleKey(key) {
-  key.classList.toggle("active")
-  playNote(key)
+var audioCtx = new (window.AudioContext || window.webkitAudioContext)()
+var oscillator = audioCtx.createOscillator()
+
+function pressKey(key) {
+  if (!key.classList.contains("active")) {
+    key.classList.add("active")
+    playNote(key)
+  }
 }
 function playNote(key) {
   NOTE_DETAILS.forEach((note) => {
     if (note.note == key.dataset.note) {
-      console.log(note.frequency)
+      createNote(note.frequency, oscillator)
+    }
+  })
+}
+function unpressKey(key) {
+  key.classList.remove("active")
+  stopNote(key)
+}
+function stopNote(key) {
+  NOTE_DETAILS.forEach((note) => {
+    if (note.note == key.dataset.note) {
+      oscillator.stop()
     }
   })
 }
 
+function createNote(frequency, oscillator) {
+  oscillator.type = "saw"
+  oscillator.frequency.value = frequency
+  oscillator.connect(audioCtx.destination)
+  oscillator.start()
+}
+
 KEYS.forEach((key) => {
-  key.addEventListener("click", (e) => {
+  key.addEventListener("mouseup", (e) => {
+    keysClasses = key.classList
     console.log(e)
-    toggleKey(key)
+    unpressKey(key)
   })
 })
-document.addEventListener("keypress", (e) => {
-  console.log(e)
+KEYS.forEach((key) => {
+  key.addEventListener("mousedown", (e) => {
+    console.log(e)
+    pressKey(key)
+  })
+})
+document.addEventListener("keyup", (e) => {
+  NOTE_DETAILS.forEach((key) => {
+    if (key.key.toLowerCase() == e.key) {
+      KEYS.forEach((htmlKey) => {
+        if (key.note == htmlKey.dataset.note) {
+          unpressKey(htmlKey)
+        }
+      })
+    }
+  })
+})
+document.addEventListener("keydown", (e) => {
+  NOTE_DETAILS.forEach((key) => {
+    if (key.key.toLowerCase() == e.key) {
+      KEYS.forEach((htmlKey) => {
+        if (key.note == htmlKey.dataset.note) {
+          pressKey(htmlKey)
+        }
+      })
+    }
+  })
 })
