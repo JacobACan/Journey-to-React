@@ -47,3 +47,23 @@ switch (number) {
     console.log("try again!")
     break
 }
+
+//Recurstion
+function sumNumber(i) {
+  if (i > 10) return 0
+  return i + sumNumber(i + 1)
+}
+function main() {
+  let finalNumber = sumNumber(0)
+  console.log(finalNumber)
+}
+const Person = {
+  name: "Kyle",
+  friend: {
+    name: "Joe",
+    friend: {
+      name: "Sally",
+    },
+  },
+}
+main()
