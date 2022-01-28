@@ -5,6 +5,30 @@
     * BONUS: The questions (have the class `question-item`)
     * BONUS: The alert (has the id `alert`)
 */
+const FORM_ELEMENT = document.querySelector("#quiz-form")
+const ANSWER_INPUTS = document.querySelectorAll(".answer")
+const QUESTIONS = document.querySelectorAll(".question-itme")
+const ALERT = document.querySelector("#alert")
+const QUESTIONS_OBJ = {
+  question1: {
+    answer1: true,
+    answer2: false,
+    answer3: false,
+    answer4: false,
+  },
+  question2: {
+    answer1: true,
+    answer2: false,
+    answer3: false,
+    answer4: false,
+  },
+  question3: {
+    answer1: true,
+    answer2: false,
+    answer3: false,
+    answer4: false,
+  },
+}
 
 // TODO: 3. Create a submit event listener for the form that does the following.
 //    1. Prevent the default behaviour
@@ -14,3 +38,8 @@
 //    5. For each incorrect answer add the class `incorrect` to the parent with the class `question-item` and remove the class `correct`.
 //    6. BONUS: Make sure unanswered questions show up as incorrect. The easiest way to do this is to add the incorrect class and removing the correct class from all question items before checking the correct answers
 //    7. BONUS: If all answers are correct show the element with the id `alert` and hide it after one second (look into setTimeout) (use the class active to show the alert and remove the class to hide it)
+
+FORM_ELEMENT.addEventListener("submit", (e) => {
+  e.preventDefault()
+  console.log(e)
+})
