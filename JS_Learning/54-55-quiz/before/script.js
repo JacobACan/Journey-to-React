@@ -7,28 +7,8 @@
 */
 const FORM_ELEMENT = document.querySelector("#quiz-form")
 const ANSWER_INPUTS = document.querySelectorAll(".answer")
-const QUESTIONS = document.querySelectorAll(".question-itme")
+// const QUESTIONS = document.querySelectorAll(".question-item")
 const ALERT = document.querySelector("#alert")
-const QUESTIONS_OBJ = {
-  question1: {
-    answer1: true,
-    answer2: false,
-    answer3: false,
-    answer4: false,
-  },
-  question2: {
-    answer1: true,
-    answer2: false,
-    answer3: false,
-    answer4: false,
-  },
-  question3: {
-    answer1: true,
-    answer2: false,
-    answer3: false,
-    answer4: false,
-  },
-}
 
 // TODO: 3. Create a submit event listener for the form that does the following.
 //    1. Prevent the default behaviour
@@ -41,5 +21,41 @@ const QUESTIONS_OBJ = {
 
 FORM_ELEMENT.addEventListener("submit", (e) => {
   e.preventDefault()
-  console.log(e)
+  amount_of_questions = e.target.querySelectorAll(".question-item").length
+  answerInputsArray = Array.from(ANSWER_INPUTS)
+  const selected_answers = answerInputsArray.filter((answer) => {
+    return answer.checked
+  })
+  if (selected_answers.length < amount_of_questions) return
+
+  answers_correct = 0
+  selected_answers.forEach((answer) => {
+    if (answer.value == "true") {
+      answers_correct += 1
+      toggleAnswerCorrect(answer)
+    } else {
+      toggleIncorrectAnswer(answer)
+    }
+  })
+
+  if (answers_correct == amount_of_questions) {
+    ALERT.classList.toggle("active")
+    setTimeout(() => {
+      ALERT.classList.toggle("active")
+    }, 1000)
+  }
 })
+
+function toggleAnswerCorrect(answer) {
+  if (!answer.closest(".question-item").classList.contains("correct")) {
+    answer.closest(".question-item").classList.remove("incorrect")
+    answer.closest(".question-item").classList.add("correct")
+  }
+}
+
+function toggleIncorrectAnswer(answer) {
+  if (!answer.closest(".question-item").classList.contains("incorrect")) {
+    answer.closest(".question-item").classList.remove("correct")
+    answer.closest(".question-item").classList.add("incorrect")
+  }
+}
