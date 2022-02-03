@@ -1,7 +1,34 @@
 // TODO: Select all elements needed
 //    Use the HTML to figure out what classes/ids will work best for selecting each element
-
+const FORM = document.querySelector("#form")
+const USERNAME = document.querySelector("#username")
+const PASSWORD = document.querySelector("#password")
+const PASSWORD_CONFIRMATION = document.querySelector("#password-confirmation")
+const TERMS = document.querySelector("#terms")
+const ERRORS = document.querySelector(".errors")
+const ERRORS_LIST = document.querySelector(".errors-list")
 // TODO: Create an event listener for when the form is submitted and do the following inside of it.
+FORM.addEventListener("submit", (e) => {
+  e.preventDefault()
+  const errorMessages = []
+  let condition1 = USERNAME.value.length >= 6
+  if (!condition1)
+    errorMessages.push("Ensure the username is at least 6 characters long")
+  let condition2 = PASSWORD.value.length >= 10
+  if (!condition2)
+    errorMessages.push("Ensure the password is at least 10 characters long")
+  let condition3 = PASSWORD.value == PASSWORD_CONFIRMATION.value
+  if (!condition3)
+    errorMessages.push("Ensure the password and confirmation password match")
+  let condition4 = TERMS.checked
+  if (!condition4) errorMessages.push("Ensure the terms checkbox is checked")
+
+  if (condition1 && condition2 && condition3 && condition4) {
+    FORM.submit()
+  } else {
+    showErrors(errorMessages)
+  }
+})
 //    TODO: Create an array to store all error messages and clear any old error messages
 //    TODO: Define the following validation checks with appropriate error messages
 //      1. Ensure the username is at least 6 characters long
@@ -21,6 +48,20 @@ function clearErrors() {
 
 // TODO: Define this function
 function showErrors(errorMessages) {
+  errorMessages.forEach((errorMessage) => {
+    errorHTMLMessage = document.createElement("li")
+    errorHTMLMessage.innerText = errorMessage
+    errorHTMLMessage.classList = "error-message"
+    errorsInList = ERRORS_LIST.querySelectorAll(".error-message")
+    errorsInListArray = Array.from(errorsInList)
+    containsError = errorsInListArray.some((element) => {
+      return element == errorHTMLMessage
+    })
+    console.log(containsError)
+    // if (!ERRORS_LIST.contains(errorHTMLMessage))
+    ERRORS_LIST.appendChild(errorHTMLMessage)
+  })
+  if (ERRORS_LIST.childElementCount > 0) ERRORS.classList.add("show")
   // Add each error to the error-list element
   // Make sure to use an li as the element for each error
   // Also, make sure you add the show class to the errors container
