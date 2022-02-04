@@ -39,6 +39,11 @@ FORM.addEventListener("submit", (e) => {
 
 // TODO: Define this function
 function clearErrors() {
+  while (document.querySelectorAll(".error-message").length > 0) {
+    let currentErrorList = document.querySelector(".errors-list")
+    let currentError = document.querySelector(".error-message")
+    currentErrorList.removeChild(currentError)
+  }
   // Loop through all the children of the error-list element and remove them
   // IMPORTANT: This cannot be done with a forEach loop or a normal for loop since as you remove children it will modify the list you are looping over which will not work
   // I recommend using a while loop to accomplish this task
@@ -48,6 +53,7 @@ function clearErrors() {
 
 // TODO: Define this function
 function showErrors(errorMessages) {
+  clearErrors()
   errorMessages.forEach((errorMessage) => {
     errorHTMLMessage = document.createElement("li")
     errorHTMLMessage.innerText = errorMessage
@@ -55,11 +61,9 @@ function showErrors(errorMessages) {
     errorsInList = ERRORS_LIST.querySelectorAll(".error-message")
     errorsInListArray = Array.from(errorsInList)
     containsError = errorsInListArray.some((element) => {
-      return element == errorHTMLMessage
+      return element.innerText == errorMessage
     })
-    console.log(containsError)
-    // if (!ERRORS_LIST.contains(errorHTMLMessage))
-    ERRORS_LIST.appendChild(errorHTMLMessage)
+    if (!containsError) ERRORS_LIST.appendChild(errorHTMLMessage)
   })
   if (ERRORS_LIST.childElementCount > 0) ERRORS.classList.add("show")
   // Add each error to the error-list element
