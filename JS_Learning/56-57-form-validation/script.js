@@ -66,6 +66,7 @@ function showErrors(errorMessages) {
     if (!containsError) ERRORS_LIST.appendChild(errorHTMLMessage)
   })
   if (ERRORS_LIST.childElementCount > 0) ERRORS.classList.add("show")
+  else ERRORS.classList.remove("show")
   // Add each error to the error-list element
   // Make sure to use an li as the element for each error
   // Also, make sure you add the show class to the errors container
