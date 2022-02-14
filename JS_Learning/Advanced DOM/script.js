@@ -1,19 +1,22 @@
 // FETCH (Recieve Data)
 // query info on the web through an API returns data that you can use in js code
 // jsonplaceholder.typicode.com
+const Boxes = document.querySelector(".Boxes")
 
-function createTimerPromise(i) {
+function createTimerPromise(i, maxIterations, maxWaitTime) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(i + 1)
-    }, 100)
+      const box = document.createElement("div")
+      box.classList = "Box"
+      resolve(box)
+    }, Math.sin((i * Math.PI) / maxIterations) * maxWaitTime)
   })
 }
 
-async function async_time_fetch() {
-  for (let i = 0; i < 10; i++) {
-    time = await createTimerPromise(i)
-    console.log(`Time: ${time}`)
+async function async_time_fetch(maxIterations, maxWaitTime) {
+  for (let i = 0; i < maxIterations; i++) {
+    box = await createTimerPromise(i, maxIterations, maxWaitTime)
+    Boxes.appendChild(box)
   }
 }
 function time_fetch() {
@@ -60,6 +63,17 @@ async function showDataNames() {
     console.log(error)
   }
 }
-showDataNames()
+// showDataNames()
 
-console.log("Here")
+// async_time_fetch(100, 1000)
+
+// Fetching
+const URL = "https://jsonplaceholder.typicode.com/comments?postId=1"
+
+async function getPostId1() {
+  const response = await fetch(URL)
+  const dataList = await response.json()
+  console.log(dataList)
+}
+
+getPostId1()
