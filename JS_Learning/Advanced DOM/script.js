@@ -76,4 +76,39 @@ async function getPostId1() {
   console.log(dataList)
 }
 
-getPostId1()
+// getPostId1()
+
+//Event Loop
+// function test() {
+//   console.log("1")
+//   console.log("2")
+//   setTimeout(() => console.log("3"), 10)
+//   setTimeout(() => console.log("4"), 0)
+//   console.log("5")
+// }
+
+// test()
+
+//EVENT DELEGATION
+/*
+bubbles select down then runs out
+*/
+
+const BUTTONS = document.querySelectorAll("button")
+
+// document.addEventListener("click", (e) => console.log("clicked document"))
+// document.body.addEventListener("click", (e) => console.log("clicked body"))
+
+// BUTTONS.forEach((button) => {
+//   button.addEventListener("click", (e) => {
+//     e.stopPropagation()
+//     console.log("clicked")
+//   })
+// })
+
+document.addEventListener("click", (e) => {
+  if (e.target.matches("button")) {
+    // .matches is like a query selector
+    console.log("Clicked Button")
+  }
+})
