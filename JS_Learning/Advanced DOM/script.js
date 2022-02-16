@@ -107,8 +107,35 @@ const BUTTONS = document.querySelectorAll("button")
 // })
 
 document.addEventListener("click", (e) => {
+  // Usual way to addEvent listener to elements that are dynamically added to page
   if (e.target.matches("button")) {
     // .matches is like a query selector
     console.log("Clicked Button")
   }
 })
+
+//Browser Storage
+// Local Storage  | Cookier             | Session Storage
+// 10MB           | 4KB                 | 5MB
+// Never Expires  | Manual Expiration   | Expire on tab close
+// Client         | Client/Server       | Client
+//  Easy          | Unwieldly           | Easy
+
+//LOCAL STORAGE (use most of the time...)
+//SESSION STORAGE (use when you want to delete info after session)
+localStorage.setItem("Name", "Jacob")
+sessionStorage.setItem("Name2", "Bob")
+// remove key value by simply passing key
+console.log(localStorage.getItem("Name"))
+
+//COOKIES  (usually use when sending info to storage)
+//Cookies are on the document
+const futureDate = new Date(9999, 0, 1).toUTCString() // Never Expire
+const pastDate = new Date(1999, 0, 1).toUTCString() // Never Expire
+document.cookie = `name=Kyle; expires = ${futureDate}`
+document.cookie = `age = 25; expires =${futureDate}` // adds instead of replaces
+document.cookie = `age = ; expres = ${pastDate}` //Delete Cookie
+
+// console.log(document.cookie)
+//
+// key-Value
