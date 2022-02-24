@@ -1,8 +1,8 @@
-//ES6 modules
-import { Bear, Joey } from "./user.js"
+// //ES6 modules
+// import { Bear, Joey } from "./user.js"
 
-console.log(Bear)
-console.log(Joey)
+// console.log(Bear)
+// console.log(Joey)
 
 // //Node.js Modules
 // const userExport = require("./user.js")
